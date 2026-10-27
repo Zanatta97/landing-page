@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tempero da Vila | Restaurante (página de exemplo)</title>
+  <meta name="description" content="Comida caseira no fogão a lenha. Buffet por quilo, prato do dia e marmitex. Página de exemplo com negócio fictício.">
+  <meta name="theme-color" content="#1c2420">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Tempero da Vila | Comida caseira no fogão a lenha">
+  <meta property="og:description" content="Buffet por quilo, prato do dia e marmitex. Página de exemplo com negócio fictício.">
+  <meta property="og:url" content="https://zanatta97.github.io/landing-page/exemplos/restaurante/">
+  <meta property="og:image" content="https://zanatta97.github.io/landing-page/exemplos/restaurante/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c2420'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23f0714f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap">
+
+  <style>
+    /* Identidade: restaurante caseiro, lousa escura + vermelho-tomate. Tema escuro fixo (marca). */
+    :root {
+      --bg: #1c2420;
+      --surface: #242e29;
+      --surface-2: #2c3832;
+      --line: #3a4740;
+      --text: #f1ece2;
+      --muted: #b9c2b8;
+      --accent: #f0714f;
+      --on-accent: #161b18;
+      --radius: 14px;
+      --font-display: "Caprasimo", Georgia, serif;
+      --font-body: "Figtree", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 1rem/1.6 var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; margin: 0; }
+    p { margin: 0; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -4rem; z-index: 20;
+      background: var(--accent); color: var(--on-accent); padding: .6rem 1rem; border-radius: 8px; font-weight: 700;
+    }
+    .skip-link:focus { top: 1rem; }
+    /* Texto só para leitor de tela */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+    /* Aviso de página de exemplo */
+    .demo-bar {
+      background: var(--surface-2); color: var(--muted); font-size: .85rem; text-align: center; padding: .5rem 1rem;
+    }
+    .demo-bar a { color: var(--text); font-weight: 600; }
+
+    /* Cabeçalho */
+    .site-header { border-bottom: 1px solid var(--line); }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+    .brand { font-family: var(--font-display); font-size: 1.35rem; text-decoration: none; }
+    .site-nav { display: none; gap: 1.75rem; }
+    .site-nav a { text-decoration: none; color: var(--muted); font-weight: 600; }
+    .site-nav a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      min-height: 48px; padding: .75rem 1.4rem; border-radius: 999px;
+      font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: transform .2s cubic-bezier(.16, 1, .3, 1), background-color .2s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn--primary { background: var(--accent); color: var(--on-accent); }
+    .btn--primary:hover { background: #f5876a; }
+    .btn--ghost { border: 1.5px solid var(--line); color: var(--text); }
+    .btn--ghost:hover { border-color: var(--muted); }
+    .btn--small { min-height: 42px; padding: .5rem 1rem; font-size: .95rem; }
+    /* No celular o botão fixo substitui o do cabeçalho */
+    .site-header .btn { display: none; }
+
+    /* Hero */
+    .hero { padding: 3rem 0 3.5rem; }
+    .hero .container { display: grid; gap: 2.5rem; }
+    .hero h1 { font-size: clamp(2.4rem, 8vw, 3.7rem); letter-spacing: -.01em; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-text p { color: var(--muted); font-size: 1.125rem; max-width: 34ch; margin-top: 1.25rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+    /* Espaço reservado para foto real do cliente */
+    .photo-slot {
+      position: relative; overflow: hidden; border-radius: var(--radius);
+      display: grid; place-items: end start; padding: 1.25rem;
+      border: 1.5px dashed #56655c;
+      background:
+        radial-gradient(120% 70% at 50% 110%, rgba(240, 113, 79, .45), transparent 60%),
+        radial-gradient(60% 40% at 30% 100%, rgba(242, 184, 75, .25), transparent 70%),
+        var(--surface);
+    }
+    .photo-slot p { background: rgba(28, 36, 32, .82); border-radius: 10px; padding: .6rem .8rem; }
+    .photo-slot strong { display: block; font-size: 1rem; }
+    .photo-slot span { color: var(--muted); font-size: .9rem; }
+    .hero .photo-slot { min-height: 300px; }
+
+    /* Prato do dia */
+    .section { padding: 4rem 0; }
+    .section h2 { font-size: clamp(2rem, 5vw, 2.8rem); }
+    .section-lead { color: var(--muted); margin-top: .75rem; max-width: 52ch; }
+
+    .daily {
+      list-style: none; padding: 0 0 .5rem; margin: 2rem 0 0;
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(210px, 1fr);
+      gap: .75rem; overflow-x: auto; scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+    }
+    .daily li {
+      scroll-snap-align: start; background: var(--surface); border-radius: var(--radius);
+      padding: 1.25rem; border: 1.5px solid transparent;
+    }
+    .daily .day { color: var(--muted); font-weight: 600; font-size: .9rem; }
+    .daily .dish { display: block; font-family: var(--font-display); font-size: 1.3rem; margin: .4rem 0 .9rem; line-height: 1.2; }
+    .daily .price { font-weight: 700; }
+    .daily li.is-today { border-color: var(--accent); }
+    .daily .today-tag {
+      display: none; margin-left: .4rem; background: var(--accent); color: var(--on-accent);
+      font-size: .75rem; font-weight: 700; padding: .1rem .5rem; border-radius: 999px;
+    }
+    .daily li.is-today .today-tag { display: inline-block; }
+
+    /* Cardápio com linha pontilhada até o preço */
+    .menu { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
+    .menu h3 { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
+    .menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+    .menu-item { display: flex; align-items: baseline; gap: .5rem; }
+    .menu-item .name { font-weight: 600; }
+    .menu-item .leader { flex: 1; border-bottom: 2px dotted #56655c; transform: translateY(-.3em); min-width: 1rem; }
+    .menu-item .value { font-weight: 700; white-space: nowrap; }
+    .menu-item small { display: block; color: var(--muted); font-size: .88rem; font-weight: 400; }
+    .menu-note { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
+
+    /* Visite: horário + endereço */
+    .visit { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+    .panel { background: var(--surface); border-radius: var(--radius); padding: 1.5rem; }
+    .panel h3 { font-size: 1.35rem; margin-bottom: 1rem; }
+    .hours { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .5rem 1.5rem; }
+    .hours dt { color: var(--muted); }
+    .hours dd { margin: 0; font-weight: 600; text-align: right; }
+    .address { font-style: normal; margin-bottom: 1rem; }
+
+    .map {
+      position: relative; height: 220px; border-radius: 10px; overflow: hidden; margin-bottom: 1rem;
+      background:
+        linear-gradient(90deg, transparent 47%, #3d4a43 47%, #3d4a43 53%, transparent 53%),
+        linear-gradient(0deg, transparent 58%, #3d4a43 58%, #3d4a43 64%, transparent 64%),
+        linear-gradient(28deg, transparent 30%, #34403a 30%, #34403a 33%, transparent 33%),
+        repeating-linear-gradient(0deg, #222b26 0 38px, #26302a 38px 76px);
+    }
+    .map .pin {
+      position: absolute; left: 50%; top: 38%; width: 26px; height: 26px; margin: -26px 0 0 -13px;
+      background: var(--accent); border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
+      box-shadow: 0 6px 16px rgba(240, 113, 79, .4);
+    }
+    .map .pin::after { content: ""; position: absolute; inset: 8px; border-radius: 50%; background: var(--bg); }
+    .map .street { position: absolute; left: .75rem; bottom: .6rem; font-size: .8rem; color: var(--muted); }
+
+    /* Rodapé */
+    .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 6.5rem; color: var(--muted); font-size: .95rem; }
+    .site-footer .container { display: grid; gap: 1.25rem; }
+    .social { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .social a { color: var(--text); font-weight: 600; }
+
+    /* Botão fixo de WhatsApp no celular */
+    .float-cta {
+      position: fixed; right: 1rem; bottom: 1rem; z-index: 10;
+      box-shadow: 0 10px 30px rgba(10, 14, 12, .5);
+    }
+
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .site-header .btn { display: inline-flex; }
+      .hero { padding: 4.5rem 0 5rem; }
+      .hero .container { grid-template-columns: 1.2fr .8fr; align-items: center; gap: 3.5rem; }
+      .hero .photo-slot { min-height: 440px; }
+      .menu { grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+      .visit { grid-template-columns: .8fr 1.2fr; }
+      .site-footer .container { grid-template-columns: 1fr auto; align-items: center; }
+      .float-cta { display: none; }
+      .site-footer { padding-bottom: 3rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-text > * { animation: rise .7s cubic-bezier(.16, 1, .3, 1) both; }
+      .hero-text > :nth-child(2) { animation-delay: .08s; }
+      .hero-text > :nth-child(3) { animation-delay: .16s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="demo-bar" aria-label="Aviso">
+    Página de exemplo com negócio fictício. <a href="../../index.html">Voltar para a vitrine</a>
+  </aside>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#conteudo">Tempero da Vila</a>
+      <nav class="site-nav" aria-label="Seções da página">
+        <a href="#prato-do-dia">Prato do dia</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#visite">Horário e endereço</a>
+      </nav>
+      <!-- Os botões de WhatsApp deste exemplo levam ao WhatsApp do Samuel. Em cliente real, use o número do cliente. -->
+      <a class="btn btn--primary btn--small" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20restaurante%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Pedir no WhatsApp<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-text">
+          <h1 id="hero-title">Comida de casa, feita no <em>fogão a lenha</em>.</h1>
+          <p>Almoço de segunda a sábado: buffet por quilo, prato do dia e marmitex para levar.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20restaurante%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Pedir no WhatsApp<span class="visually-hidden"> (abre em nova aba)</span></a>
+            <a class="btn btn--ghost" href="#cardapio">Ver cardápio</a>
+          </div>
+        </div>
+        <div class="photo-slot">
+          <p><strong>Foto do seu estabelecimento</strong><span>Aqui entra o fogão a lenha aceso ou o salão cheio.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prato-do-dia" aria-labelledby="daily-title">
+      <div class="container">
+        <h2 id="daily-title">Prato do dia</h2>
+        <p class="section-lead">Acompanha arroz, feijão, salada e farofa da casa.</p>
+        <ul class="daily" tabindex="0" aria-label="Pratos da semana (role para os lados)">
+          <li data-day="1"><span class="day">Segunda <span class="today-tag">Hoje</span></span><span class="dish">Virado à paulista</span><span class="price">R$ 32,90</span></li>
+          <li data-day="2"><span class="day">Terça <span class="today-tag">Hoje</span></span><span class="dish">Bife à rolê com purê</span><span class="price">R$ 34,90</span></li>
+          <li data-day="3"><span class="day">Quarta <span class="today-tag">Hoje</span></span><span class="dish">Feijoada</span><span class="price">R$ 36,90</span></li>
+          <li data-day="4"><span class="day">Quinta <span class="today-tag">Hoje</span></span><span class="dish">Frango assado com macarrão</span><span class="price">R$ 31,90</span></li>
+          <li data-day="5"><span class="day">Sexta <span class="today-tag">Hoje</span></span><span class="dish">Tilápia empanada</span><span class="price">R$ 35,90</span></li>
+          <li data-day="6"><span class="day">Sábado <span class="today-tag">Hoje</span></span><span class="dish">Feijoada completa</span><span class="price">R$ 42,90</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="cardapio" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 id="menu-title">Cardápio</h2>
+        <div class="menu">
+          <div>
+            <h3>Buffet e marmitex</h3>
+            <ul>
+              <li class="menu-item"><span class="name">Buffet por quilo<small>Mais de 20 opções quentes e saladas</small></span><span class="leader" aria-hidden="true"></span><span class="value">R$ 69,90/kg</span></li>
+              <li class="menu-item"><span class="name">Marmitex pequena</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 22,00</span></li>
+              <li class="menu-item"><span class="name">Marmitex grande</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 28,00</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Grelhados</h3>
+            <ul>
+              <li class="menu-item"><span class="name">Contrafilé acebolado</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 44,90</span></li>
+              <li class="menu-item"><span class="name">Filé de frango</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 33,90</span></li>
+              <li class="menu-item"><span class="name">Linguiça da roça</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 29,90</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Sobremesas</h3>
+            <ul>
+              <li class="menu-item"><span class="name">Pudim de leite</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 9,50</span></li>
+              <li class="menu-item"><span class="name">Doce de abóbora com coco</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 7,00</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Bebidas</h3>
+            <ul>
+              <li class="menu-item"><span class="name">Suco natural</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 9,00</span></li>
+              <li class="menu-item"><span class="name">Refrigerante lata</span><span class="leader" aria-hidden="true"></span><span class="value">R$ 6,50</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="menu-note">Preços ilustrativos. Entrega no bairro com taxa de R$ 5,00.</p>
+      </div>
+    </section>
+
+    <section class="section" id="visite" aria-labelledby="visit-title">
+      <div class="container">
+        <h2 id="visit-title">Venha almoçar com a gente</h2>
+        <div class="visit">
+          <div class="panel">
+            <h3>Horário</h3>
+            <dl class="hours">
+              <dt>Segunda a sexta</dt><dd>11h às 15h</dd>
+              <dt>Sábado</dt><dd>11h às 16h</dd>
+              <dt>Domingo</dt><dd>Fechado</dd>
+            </dl>
+          </div>
+          <div class="panel">
+            <h3>Endereço</h3>
+            <address class="address">Rua das Acácias, 418, Centro<br>Vale Claro</address>
+            <div class="map" role="img" aria-label="Mapa ilustrativo com a localização do restaurante na Rua das Acácias">
+              <span class="pin"></span>
+              <span class="street" aria-hidden="true">Rua das Acácias</span>
+            </div>
+            <!-- Em um cliente real: link do Google Maps do endereço verdadeiro -->
+            <a class="btn btn--ghost btn--small" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20das%20Ac%C3%A1cias%20418%20Centro">Abrir no mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram @temperodavila<span class="visually-hidden"> (abre em nova aba)</span></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook<span class="visually-hidden"> (abre em nova aba)</span></a>
+      </div>
+      <p>Página de exemplo feita por <a href="../../index.html">Samuel Zanatta Silva</a>.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn--primary float-cta" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20restaurante%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Pedir no WhatsApp<span class="visually-hidden"> (abre em nova aba)</span></a>
+
+  <script>
+    // Destaca o prato do dia de hoje (0 = domingo, sem prato).
+    (function () {
+      var item = document.querySelector('.daily li[data-day="' + new Date().getDay() + '"]');
+      if (item) item.classList.add('is-today');
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurora Odontologia | Clínica odontológica (página de exemplo)</title>
+  <meta name="description" content="Clínica geral, ortodontia, implantes e odontopediatria com avaliação e plano de tratamento por escrito. Página de exemplo com negócio fictício.">
+  <meta name="theme-color" content="#f5f8fa">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Aurora Odontologia | Tratamento explicado antes de começar">
+  <meta property="og:description" content="Agende sua avaliação pelo WhatsApp. Página de exemplo com negócio fictício.">
+  <meta property="og:url" content="https://zanatta97.github.io/landing-page/exemplos/clinica-odontologica/">
+  <meta property="og:image" content="https://zanatta97.github.io/landing-page/exemplos/clinica-odontologica/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230d6f78'/%3E%3Cpath d='M8 20a8 8 0 0 1 16 0' stroke='%23f5f8fa' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+
+  <style>
+    /* Identidade: clínica de confiança, branco clínico + azul-petróleo. Raio 12px em superfícies, 10px em botões. */
+    :root {
+      --bg: #f5f8fa;
+      --surface: #ffffff;
+      --tint: #e3f0f1;
+      --line: #d6e1e6;
+      --text: #0f2a3a;
+      --muted: #4b5d68;
+      --accent: #0d6f78;
+      --accent-hover: #0a5a62;
+      --on-accent: #ffffff;
+      --radius: 12px;
+      --font: "Manrope", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -.02em; font-weight: 800; }
+    p { margin: 0; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--accent); color: var(--on-accent); padding: .6rem 1rem; border-radius: 10px; font-weight: 700; }
+    .skip-link:focus { top: 1rem; }
+    /* Texto só para leitor de tela */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+    .demo-bar { background: var(--tint); font-size: .85rem; text-align: center; padding: .5rem 1rem; color: var(--muted); }
+    .demo-bar a { color: var(--text); font-weight: 700; }
+
+    .site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+    .brand { text-decoration: none; font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em; }
+    .brand span { color: var(--accent); }
+    .site-nav { display: none; gap: 1.75rem; }
+    .site-nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+    .site-nav a:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.4rem;
+      border-radius: 10px; font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: background-color .2s, border-color .2s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn--primary { background: var(--accent); color: var(--on-accent); }
+    .btn--primary:hover { background: var(--accent-hover); }
+    .btn--outline { border: 1.5px solid var(--line); background: var(--surface); }
+    .btn--outline:hover { border-color: var(--accent); }
+    .btn--small { min-height: 42px; padding: .5rem 1rem; font-size: .95rem; }
+
+    /* Hero */
+    .hero { padding: 2.5rem 0 3rem; }
+    .hero .container { display: grid; gap: 2.5rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); max-width: 16ch; }
+    .hero-copy p { font-size: 1.125rem; color: var(--muted); max-width: 40ch; margin-top: 1.25rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+    .photo-slot {
+      min-height: 280px; border-radius: var(--radius); display: grid; place-items: end start; padding: 1.5rem;
+      border: 1.5px dashed #9fb8c1;
+      background: linear-gradient(160deg, var(--tint), var(--surface) 70%);
+    }
+    .photo-slot strong { display: block; }
+    .photo-slot span { color: var(--muted); font-size: .92rem; }
+
+    .facts { list-style: none; margin: 0; padding: 1.5rem 0; display: grid; gap: .75rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .facts li { font-weight: 700; }
+    .facts li span { display: block; font-weight: 400; color: var(--muted); font-size: .92rem; }
+
+    /* Tratamentos em acordeão */
+    .section { padding: 4rem 0; }
+    .section h2 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+    .section-lead { color: var(--muted); margin-top: .75rem; max-width: 56ch; }
+    .treatments { margin-top: 2rem; display: grid; gap: .6rem; }
+    .treatments details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .treatments details[open] { border-color: var(--accent); }
+    .treatments summary {
+      list-style: none; cursor: pointer; padding: 1.1rem 1.25rem; font-weight: 700; font-size: 1.08rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px;
+    }
+    .treatments summary::-webkit-details-marker { display: none; }
+    .treatments summary::after {
+      content: ""; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+      transform: rotate(45deg) translateY(-3px); transition: transform .2s;
+    }
+    .treatments details[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
+    .treatments details p { padding: 0 1.25rem 1.25rem; color: var(--muted); max-width: 62ch; }
+
+    /* Primeira consulta */
+    .first-visit { display: grid; gap: 2.5rem; }
+    .first-visit ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; counter-reset: visit; }
+    .first-visit li { counter-increment: visit; display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; }
+    .first-visit li::before {
+      content: counter(visit); width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center;
+      background: var(--tint); color: var(--accent); font-weight: 800;
+    }
+    .first-visit h3 { font-size: 1.15rem; }
+    .first-visit li p { color: var(--muted); margin-top: .2rem; }
+
+    /* Equipe */
+    .team { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1rem; }
+    .team li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; display: grid; grid-template-columns: 72px 1fr; gap: 1rem; align-items: center; }
+    .avatar-slot { width: 72px; height: 72px; border-radius: 50%; border: 1.5px dashed #9fb8c1; background: var(--tint); display: grid; place-items: center; font-size: .65rem; text-align: center; color: var(--muted); line-height: 1.2; padding: .4rem; }
+    .team h3 { font-size: 1.05rem; }
+    .team p { color: var(--muted); font-size: .92rem; }
+
+    /* Horário e endereço */
+    .visit { display: grid; gap: 1rem; margin-top: 2rem; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+    .panel h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .hours { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; }
+    .hours dd { margin: 0; font-weight: 700; }
+    .address { font-style: normal; margin-bottom: 1rem; }
+    .map {
+      position: relative; height: 220px; border-radius: 10px; margin-bottom: 1rem; overflow: hidden;
+      background:
+        linear-gradient(90deg, transparent 54%, var(--surface) 54% 59%, transparent 59%),
+        linear-gradient(0deg, transparent 44%, var(--surface) 44% 50%, transparent 50%),
+        linear-gradient(0deg, transparent 80%, var(--surface) 80% 83%, transparent 83%),
+        var(--tint);
+    }
+    .map .pin { position: absolute; left: 56.5%; top: 34%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: var(--accent); border: 4px solid var(--surface); box-shadow: 0 0 0 6px rgba(13, 111, 120, .18); }
+    .map .street { position: absolute; left: 60%; top: 38%; font-size: .78rem; color: var(--muted); }
+
+    .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; color: var(--muted); font-size: .92rem; }
+    .site-footer .container { display: grid; gap: 1rem; }
+    .social { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .social a { color: var(--accent); font-weight: 700; }
+
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .hero { padding: 4rem 0 3.5rem; }
+      .hero .container { grid-template-columns: 1.1fr .9fr; gap: 4rem; }
+      .photo-slot { min-height: 380px; }
+      .facts { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+      .first-visit { grid-template-columns: .9fr 1.1fr; gap: 4rem; }
+      .team { grid-template-columns: repeat(3, 1fr); }
+      .visit { grid-template-columns: .8fr 1.2fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy > * { animation: fade .6s ease-out both; }
+      .hero-copy > :nth-child(2) { animation-delay: .06s; }
+      .hero-copy > :nth-child(3) { animation-delay: .12s; }
+      @keyframes fade { from { opacity: 0; transform: translateY(8px); } }
+      .treatments details[open] p { animation: fade .25s ease-out both; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .treatments summary::after { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="demo-bar" aria-label="Aviso">
+    Página de exemplo com negócio fictício. <a href="../../index.html">Voltar para a vitrine</a>
+  </aside>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#conteudo">Aurora <span>Odontologia</span></a>
+      <nav class="site-nav" aria-label="Seções da página">
+        <a href="#tratamentos">Tratamentos</a>
+        <a href="#primeira-consulta">Primeira consulta</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#visite">Endereço</a>
+      </nav>
+      <!-- Os botões de WhatsApp deste exemplo levam ao WhatsApp do Samuel. Em cliente real, use o número do cliente. -->
+      <a class="btn btn--primary btn--small" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20cl%C3%ADnica%20odontol%C3%B3gica%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Agendar avaliação<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy">
+          <h1 id="hero-title">Seu tratamento explicado antes de começar.</h1>
+          <p>Na avaliação você recebe o plano de tratamento por escrito. Atendemos adultos e crianças.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20cl%C3%ADnica%20odontol%C3%B3gica%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Agendar avaliação<span class="visually-hidden"> (abre em nova aba)</span></a>
+            <a class="btn btn--outline" href="#tratamentos">Ver tratamentos</a>
+          </div>
+        </div>
+        <div class="photo-slot">
+          <p><strong>Foto do seu estabelecimento</strong><span>A recepção ou um consultório arrumado.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <ul class="facts">
+        <li>Hora marcada<span>Pontualidade no atendimento</span></li>
+        <li>Material esterilizado<span>Autoclave com controle por ciclo</span></li>
+        <li>Convênios<span>Consulte os planos aceitos</span></li>
+      </ul>
+    </div>
+
+    <section class="section" id="tratamentos" aria-labelledby="treat-title">
+      <div class="container">
+        <h2 id="treat-title">Tratamentos</h2>
+        <p class="section-lead">Os valores são passados na avaliação, depois do exame clínico.</p>
+        <div class="treatments">
+          <details open>
+            <summary>Clínica geral</summary>
+            <p>Limpeza, restaurações, tratamento de gengiva e acompanhamento preventivo a cada seis meses.</p>
+          </details>
+          <details>
+            <summary>Ortodontia</summary>
+            <p>Aparelho fixo e alinhadores transparentes, com manutenção mensal.</p>
+          </details>
+          <details>
+            <summary>Implantes e próteses</summary>
+            <p>Reposição de dentes perdidos com planejamento feito a partir de tomografia.</p>
+          </details>
+          <details>
+            <summary>Tratamento de canal</summary>
+            <p>Endodontia com localizador apical e radiografia digital.</p>
+          </details>
+          <details>
+            <summary>Clareamento</summary>
+            <p>Clareamento caseiro com moldeira ou no consultório, sempre após avaliação.</p>
+          </details>
+          <details>
+            <summary>Odontopediatria</summary>
+            <p>Atendimento para crianças a partir do primeiro dente, com consultas de adaptação.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="primeira-consulta" aria-labelledby="first-title">
+      <div class="container first-visit">
+        <div>
+          <h2 id="first-title">Como é a primeira consulta</h2>
+          <p class="section-lead">Dura cerca de 40 minutos. Traga seus exames anteriores, se tiver.</p>
+        </div>
+        <ol>
+          <li><div><h3>Conversa</h3><p>Você conta o que incomoda e seu histórico de saúde.</p></div></li>
+          <li><div><h3>Exame clínico</h3><p>Avaliação completa da boca, com radiografia se necessário.</p></div></li>
+          <li><div><h3>Plano por escrito</h3><p>Você leva para casa as etapas do tratamento e as opções.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="equipe" aria-labelledby="team-title">
+      <div class="container">
+        <h2 id="team-title">Equipe</h2>
+        <ul class="team">
+          <li><div class="avatar-slot">Foto da dentista</div><div><h3>Dra. Helena Prado</h3><p>Clínica geral e implantes</p></div></li>
+          <li><div class="avatar-slot">Foto do dentista</div><div><h3>Dr. Caio Menezes</h3><p>Ortodontia</p></div></li>
+          <li><div class="avatar-slot">Foto da dentista</div><div><h3>Dra. Renata Ilha</h3><p>Odontopediatria</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="visite" aria-labelledby="visit-title">
+      <div class="container">
+        <h2 id="visit-title">Horário e endereço</h2>
+        <div class="visit">
+          <div class="panel">
+            <h3>Horário</h3>
+            <dl class="hours">
+              <dt>Segunda a sexta</dt><dd>8h às 19h</dd>
+              <dt>Sábado</dt><dd>8h às 12h</dd>
+              <dt>Domingo</dt><dd>Fechado</dd>
+            </dl>
+          </div>
+          <div class="panel">
+            <h3>Endereço</h3>
+            <address class="address">Rua Coronel Amaral, 210, sala 504, Centro<br>Vale Claro</address>
+            <div class="map" role="img" aria-label="Mapa ilustrativo com a localização da clínica na Rua Coronel Amaral">
+              <span class="pin"></span>
+              <span class="street" aria-hidden="true">R. Cel. Amaral</span>
+            </div>
+            <!-- Em um cliente real: link do Google Maps do endereço verdadeiro -->
+            <a class="btn btn--outline btn--small" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Coronel%20Amaral%20210">Abrir no mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram @auroraodonto<span class="visually-hidden"> (abre em nova aba)</span></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook<span class="visually-hidden"> (abre em nova aba)</span></a>
+      </div>
+      <!-- Anúncio de odontologia exige nome e CRO do responsável técnico. Dados fictícios. -->
+      <p>Responsável técnica: Dra. Helena Prado, CRO-UF 00000 (dado fictício).</p>
+      <p>Página de exemplo feita por <a href="../../index.html">Samuel Zanatta Silva</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

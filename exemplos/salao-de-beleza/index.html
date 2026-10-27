@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maré Studio de Beleza | Salão (página de exemplo)</title>
+  <meta name="description" content="Cabelo, unhas, sobrancelha e maquiagem com hora marcada. Página de exemplo com negócio fictício.">
+  <meta name="theme-color" content="#fafaf7">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Maré Studio de Beleza | Cabelo, unhas e maquiagem">
+  <meta property="og:description" content="Atendimento com hora marcada. Veja os serviços e agende pelo WhatsApp. Página de exemplo com negócio fictício.">
+  <meta property="og:url" content="https://zanatta97.github.io/landing-page/exemplos/salao-de-beleza/">
+  <meta property="og:image" content="https://zanatta97.github.io/landing-page/exemplos/salao-de-beleza/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23b0186a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%23fafaf7'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Syne:wght@600;800&display=swap">
+
+  <style>
+    /* Identidade: estúdio de beleza editorial, branco frio + magenta. Botões pílula, fotos em arco, superfícies retas. */
+    :root {
+      --bg: #fafaf7;
+      --surface: #f0eef2;
+      --line: #dcd8e0;
+      --text: #1c1a22;
+      --muted: #5d5866;
+      --accent: #b0186a;
+      --accent-hover: #951159;
+      --on-accent: #fafaf7;
+      --font-display: "Syne", "Arial Black", sans-serif;
+      --font-body: "DM Sans", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; margin: 0; letter-spacing: -.02em; }
+    p { margin: 0; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--text); color: var(--bg); padding: .6rem 1rem; border-radius: 999px; font-weight: 700; }
+    .skip-link:focus { top: 1rem; }
+    /* Texto só para leitor de tela */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .container { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+
+    .demo-bar { border-bottom: 1px solid var(--line); color: var(--muted); font-size: .85rem; text-align: center; padding: .5rem 1rem; }
+    .demo-bar a { color: var(--text); font-weight: 700; }
+
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+    .brand { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; text-decoration: none; letter-spacing: -.02em; }
+    .brand span { color: var(--accent); }
+    .site-nav { display: none; gap: 2rem; }
+    .site-nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+    .site-nav a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.5rem;
+      border-radius: 999px; font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: transform .25s cubic-bezier(.16, 1, .3, 1), background-color .2s, color .2s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn--primary { background: var(--accent); color: var(--on-accent); }
+    .btn--primary:hover { background: var(--accent-hover); }
+    .btn--outline { border: 1.5px solid var(--text); }
+    .btn--outline:hover { background: var(--text); color: var(--bg); }
+    .btn--small { min-height: 42px; padding: .5rem 1.1rem; font-size: .95rem; }
+
+    /* Hero assimétrico com foto em arco */
+    .hero { padding: 2.5rem 0 4rem; }
+    .hero .container { display: grid; gap: 2.5rem; }
+    .hero h1 { font-size: clamp(1.75rem, 9vw, 5rem); font-weight: 800; }
+    .hero h1 span { display: block; color: var(--accent); }
+    .hero-copy p { font-size: 1.125rem; color: var(--muted); max-width: 32ch; margin-top: 1.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+    .arch {
+      position: relative; border-radius: 999px 999px 0 0; overflow: hidden;
+      aspect-ratio: 4 / 5; display: grid; place-items: end center; padding: 2rem 1.5rem; text-align: center;
+      background:
+        radial-gradient(80% 60% at 50% 0%, rgba(176, 24, 106, .22), transparent 70%),
+        repeating-linear-gradient(135deg, #ece8ef 0 14px, #f4f2f6 14px 28px);
+      border: 1.5px dashed #b9b1c1;
+    }
+    .arch strong { display: block; font-weight: 700; }
+    .arch span { color: var(--muted); font-size: .9rem; }
+    .hero .arch { width: min(100%, 300px); justify-self: center; }
+
+    /* Serviços com abas */
+    .section { padding: 4.5rem 0; }
+    .section h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 800; }
+    .section-lead { color: var(--muted); margin-top: .75rem; max-width: 50ch; }
+
+    .tabs { display: flex; gap: .5rem; overflow-x: auto; margin: 2rem 0 0; padding-bottom: .25rem; }
+    .tab {
+      flex: none; font: 500 1rem var(--font-body); color: var(--text); background: transparent;
+      border: 1.5px solid var(--line); border-radius: 999px; padding: .6rem 1.2rem; min-height: 44px; cursor: pointer;
+    }
+    .tab:hover { border-color: var(--text); }
+    .tab[aria-selected="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+    .panel { margin-top: 2rem; }
+    .panel h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .js .panel h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .services { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 3rem; }
+    .services li { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+    .services li span:last-child { font-weight: 700; white-space: nowrap; }
+    .services small { display: block; color: var(--muted); font-size: .88rem; }
+
+    /* Equipe */
+    .team { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 2rem; }
+    /* No celular: foto pequena ao lado do nome */
+    .team li { display: grid; grid-template-columns: 110px 1fr; gap: 1.25rem; align-items: center; }
+    .team .arch { aspect-ratio: 3 / 4; padding: .75rem; font-size: .8rem; line-height: 1.3; }
+    .team h3 { font-size: 1.3rem; }
+    .team p { color: var(--muted); }
+
+    /* Horário e endereço */
+    .visit { display: grid; gap: 3rem; margin-top: 2.5rem; }
+    .hours { margin: 0; display: grid; grid-template-columns: 1fr auto; align-content: start; }
+    .hours dt, .hours dd { padding: .8rem 0; border-top: 1px solid var(--line); margin: 0; }
+    .hours dd { font-weight: 700; text-align: right; }
+    .address { font-style: normal; font-size: 1.15rem; margin-bottom: 1.25rem; }
+    .map {
+      position: relative; height: 240px; margin-bottom: 1.25rem; border: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, transparent 35%, #ffffff 35%, #ffffff 39%, transparent 39%),
+        linear-gradient(0deg, transparent 52%, #ffffff 52%, #ffffff 57%, transparent 57%),
+        linear-gradient(-20deg, transparent 70%, #ffffff 70%, #ffffff 72%, transparent 72%),
+        #e9e6ec;
+    }
+    .map .pin { position: absolute; left: 37%; top: 54.5%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 8px rgba(176, 24, 106, .2); }
+    .map .street { position: absolute; left: 39%; bottom: .6rem; padding-left: .5rem; font-size: .8rem; color: var(--muted); }
+
+    .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; color: var(--muted); }
+    .site-footer .container { display: grid; gap: 1.25rem; }
+    .social { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .social a { color: var(--text); font-weight: 700; }
+
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .hero { padding: 3.5rem 0 5.5rem; }
+      .hero .container { grid-template-columns: 1.2fr .8fr; align-items: center; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .hero .arch { width: 100%; max-width: 420px; justify-self: end; }
+      .team { grid-template-columns: repeat(3, 1fr); }
+      .team li { display: block; }
+      .team .arch { padding: 1.25rem; font-size: 1rem; }
+      .team h3 { margin-top: 1rem; }
+      .team li:nth-child(2) { margin-top: 3rem; }
+      .visit { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+      .site-footer .container { grid-template-columns: 1fr auto; align-items: center; }
+    }
+
+    /* Telas muito estreitas: o mesmo botão já aparece logo abaixo, no topo da página */
+    @media (max-width: 359px) { .site-header .btn { display: none; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero h1, .hero-copy p, .hero-actions { animation: slide .8s cubic-bezier(.16, 1, .3, 1) both; }
+      .hero-copy p { animation-delay: .1s; }
+      .hero-actions { animation-delay: .18s; }
+      .hero .arch { animation: grow 1s cubic-bezier(.16, 1, .3, 1) both; transform-origin: bottom; }
+      @keyframes slide { from { opacity: 0; transform: translateX(-18px); } }
+      @keyframes grow { from { opacity: 0; transform: scaleY(.92); } }
+      .panel[data-active] { animation: fade .35s ease both; }
+      @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="demo-bar" aria-label="Aviso">
+    Página de exemplo com negócio fictício. <a href="../../index.html">Voltar para a vitrine</a>
+  </aside>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#conteudo">Maré<span>.</span>studio</a>
+      <nav class="site-nav" aria-label="Seções da página">
+        <a href="#servicos">Serviços</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#visite">Horário e endereço</a>
+      </nav>
+      <!-- Os botões de WhatsApp deste exemplo levam ao WhatsApp do Samuel. Em cliente real, use o número do cliente. -->
+      <a class="btn btn--primary btn--small" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20sal%C3%A3o%20de%20beleza%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Agendar horário<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy">
+          <h1 id="hero-title">Cabelo, unhas e <span>autoestima.</span></h1>
+          <p>Atendimento com hora marcada, sem fila e sem pressa. Escolha o serviço e agende pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20sal%C3%A3o%20de%20beleza%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Agendar horário<span class="visually-hidden"> (abre em nova aba)</span></a>
+            <a class="btn btn--outline" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+        <div class="arch">
+          <p><strong>Foto do seu estabelecimento</strong><span>Um retrato do salão ou de um trabalho recente.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Serviços</h2>
+        <p class="section-lead">Valores de referência. O preço final depende do comprimento e do volume do cabelo.</p>
+
+        <div class="tabs" role="tablist" aria-label="Categorias de serviço" hidden>
+          <button class="tab" role="tab" id="tab-hair" aria-controls="panel-hair" aria-selected="true">Cabelo</button>
+          <button class="tab" role="tab" id="tab-nails" aria-controls="panel-nails" aria-selected="false" tabindex="-1">Unhas</button>
+          <button class="tab" role="tab" id="tab-brows" aria-controls="panel-brows" aria-selected="false" tabindex="-1">Sobrancelha</button>
+          <button class="tab" role="tab" id="tab-makeup" aria-controls="panel-makeup" aria-selected="false" tabindex="-1">Maquiagem</button>
+        </div>
+
+        <div class="panel" id="panel-hair" role="tabpanel" tabindex="0" aria-labelledby="tab-hair">
+          <h3>Cabelo</h3>
+          <ul class="services">
+            <li><span>Corte feminino<small>Com lavagem e finalização</small></span><span>R$ 90</span></li>
+            <li><span>Escova</span><span>R$ 55</span></li>
+            <li><span>Hidratação</span><span>R$ 70</span></li>
+            <li><span>Coloração</span><span>a partir de R$ 180</span></li>
+            <li><span>Mechas</span><span>a partir de R$ 320</span></li>
+            <li><span>Corte masculino</span><span>R$ 50</span></li>
+          </ul>
+        </div>
+        <div class="panel" id="panel-nails" role="tabpanel" tabindex="0" aria-labelledby="tab-nails">
+          <h3>Unhas</h3>
+          <ul class="services">
+            <li><span>Mão</span><span>R$ 30</span></li>
+            <li><span>Pé</span><span>R$ 35</span></li>
+            <li><span>Mão e pé</span><span>R$ 60</span></li>
+            <li><span>Alongamento em gel<small>Manutenção a cada 21 dias</small></span><span>R$ 160</span></li>
+          </ul>
+        </div>
+        <div class="panel" id="panel-brows" role="tabpanel" tabindex="0" aria-labelledby="tab-brows">
+          <h3>Sobrancelha</h3>
+          <ul class="services">
+            <li><span>Design</span><span>R$ 40</span></li>
+            <li><span>Design com henna</span><span>R$ 55</span></li>
+            <li><span>Buço</span><span>R$ 20</span></li>
+          </ul>
+        </div>
+        <div class="panel" id="panel-makeup" role="tabpanel" tabindex="0" aria-labelledby="tab-makeup">
+          <h3>Maquiagem</h3>
+          <ul class="services">
+            <li><span>Maquiagem social</span><span>R$ 150</span></li>
+            <li><span>Noiva<small>Com teste prévio</small></span><span>sob consulta</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="equipe" aria-labelledby="team-title">
+      <div class="container">
+        <h2 id="team-title">Quem cuida de você</h2>
+        <ul class="team">
+          <li>
+            <div class="arch"><p><span>Foto da profissional</span></p></div>
+            <h3>Bruna Seixas</h3>
+            <p>Corte e coloração</p>
+          </li>
+          <li>
+            <div class="arch"><p><span>Foto da profissional</span></p></div>
+            <h3>Taís Moreno</h3>
+            <p>Unhas e alongamento</p>
+          </li>
+          <li>
+            <div class="arch"><p><span>Foto da profissional</span></p></div>
+            <h3>Lívia Campos</h3>
+            <p>Sobrancelha e maquiagem</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="visite" aria-labelledby="visit-title">
+      <div class="container">
+        <h2 id="visit-title">Onde estamos</h2>
+        <div class="visit">
+          <dl class="hours">
+            <dt>Terça a sexta</dt><dd>9h às 19h</dd>
+            <dt>Sábado</dt><dd>8h às 17h</dd>
+            <dt>Domingo e segunda</dt><dd>Fechado</dd>
+          </dl>
+          <div>
+            <address class="address">Av. Beira-Rio, 1270, sala 3<br>Vale Claro</address>
+            <div class="map" role="img" aria-label="Mapa ilustrativo com a localização do salão na Avenida Beira-Rio">
+              <span class="pin"></span>
+              <span class="street" aria-hidden="true">Av. Beira-Rio</span>
+            </div>
+            <!-- Em um cliente real: link do Google Maps do endereço verdadeiro -->
+            <a class="btn btn--outline btn--small" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Beira-Rio%201270">Abrir no mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram @mare.studio<span class="visually-hidden"> (abre em nova aba)</span></a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok<span class="visually-hidden"> (abre em nova aba)</span></a>
+      </div>
+      <p>Página de exemplo feita por <a href="../../index.html">Samuel Zanatta Silva</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Abas acessíveis: sem JS todas as categorias ficam visíveis.
+    (function () {
+      var tablist = document.querySelector('[role="tablist"]');
+      var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+      document.documentElement.classList.add('js');
+      tablist.hidden = false;
+
+      function select(tab, focus) {
+        tabs.forEach(function (t) {
+          var active = t === tab;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          t.setAttribute('aria-selected', active);
+          t.tabIndex = active ? 0 : -1;
+          panel.hidden = !active;
+          if (active) panel.setAttribute('data-active', ''); else panel.removeAttribute('data-active');
+        });
+        if (focus) tab.focus();
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { select(tab, false); });
+        tab.addEventListener('keydown', function (e) {
+          var next = null;
+          if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+          if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+          if (e.key === 'Home') next = tabs[0];
+          if (e.key === 'End') next = tabs[tabs.length - 1];
+          if (next) { e.preventDefault(); select(next, true); }
+        });
+      });
+
+      select(tabs[0], false);
+    })();
+  </script>
+</body>
+</html>

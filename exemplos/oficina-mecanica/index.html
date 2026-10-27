@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bertolini Auto Mecânica | Oficina (página de exemplo)</title>
+  <meta name="description" content="Mecânica geral com orçamento antes do serviço. Revisão, freios, suspensão e injeção. Página de exemplo com negócio fictício.">
+  <meta name="theme-color" content="#efefec">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Bertolini Auto Mecânica | Orçamento antes de mexer no carro">
+  <meta property="og:description" content="Revisão, freios, suspensão e injeção eletrônica. Página de exemplo com negócio fictício.">
+  <meta property="og:url" content="https://zanatta97.github.io/landing-page/exemplos/oficina-mecanica/">
+  <meta property="og:image" content="https://zanatta97.github.io/landing-page/exemplos/oficina-mecanica/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5b700'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23151515'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+
+  <style>
+    /* Identidade: oficina de confiança, concreto + amarelo de sinalização. Cantos retos em tudo. */
+    :root {
+      --bg: #efefec;
+      --surface: #fafaf8;
+      --line: #c9c9c3;
+      --text: #151515;
+      --muted: #55554f;
+      --accent: #f5b700;
+      --on-accent: #151515;
+      --font-display: "Archivo", "Arial Narrow", sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.6 var(--font-display); font-stretch: 100%; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; line-height: .95; font-stretch: 68%; font-weight: 850; text-transform: uppercase; }
+    p { margin: 0; }
+    :focus-visible { outline: 3px solid var(--text); outline-offset: 3px; box-shadow: 0 0 0 6px var(--accent); }
+
+    .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--accent); color: var(--on-accent); padding: .6rem 1rem; font-weight: 800; }
+    .skip-link:focus { top: 1rem; }
+    /* Texto só para leitor de tela */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .container { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+
+    .demo-bar { background: var(--text); color: #e2e2dc; font-size: .85rem; text-align: center; padding: .5rem 1rem; }
+    .demo-bar a { color: var(--accent); font-weight: 700; }
+
+    .site-header { border-bottom: 2px solid var(--text); }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+    .brand { text-decoration: none; font-weight: 850; font-stretch: 68%; text-transform: uppercase; font-size: 1.45rem; line-height: 1; }
+    .brand small { display: block; font-family: var(--font-mono); font-size: .68rem; font-weight: 500; letter-spacing: .04em; color: var(--muted); white-space: nowrap; }
+    .site-nav { display: none; gap: 1.75rem; }
+    .site-nav a { text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.4rem;
+      font-weight: 800; text-decoration: none; white-space: nowrap; border: 2px solid var(--text);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn--primary { background: var(--accent); color: var(--on-accent); box-shadow: 4px 4px 0 var(--text); }
+    .btn--primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--text); }
+    .btn--primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--text); }
+    .btn--plain { background: transparent; }
+    .btn--plain:hover { background: var(--text); color: var(--bg); }
+    .btn--small { min-height: 42px; padding: .5rem 1rem; font-size: .95rem; }
+
+    /* Hero */
+    .hero { padding: 2.5rem 0 3rem; }
+    .hero .container { display: grid; gap: 2rem; }
+    .hero h1 { font-size: clamp(3rem, 14vw, 5.6rem); }
+    .hero h1 mark { background: var(--accent); color: var(--on-accent); padding: 0 .12em; }
+    .hero-copy p { font-size: 1.15rem; max-width: 36ch; margin-top: 1.5rem; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+    .photo-slot {
+      min-height: 280px; display: grid; place-items: end start; padding: 1.25rem; border: 2px dashed var(--muted);
+      background: repeating-linear-gradient(-45deg, #e6e6e2 0 1px, transparent 1px 18px), var(--surface);
+    }
+    .photo-slot strong { display: block; }
+    .photo-slot span { color: var(--muted); font-size: .92rem; }
+
+    .stripe { height: 16px; background: repeating-linear-gradient(-45deg, var(--text) 0 14px, var(--accent) 14px 28px); }
+
+    /* Serviços */
+    .section { padding: 4rem 0; }
+    .section h2 { font-size: clamp(2.4rem, 9vw, 4.2rem); }
+    .section-lead { color: var(--muted); margin-top: .75rem; max-width: 52ch; }
+    .services { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 1px; background: var(--text); border: 2px solid var(--text); }
+    .services > li { background: var(--surface); padding: 1.4rem 1.25rem; display: grid; gap: .4rem; align-content: start; }
+    .services h3 { font-size: 1.55rem; }
+    .services p { color: var(--muted); font-size: .95rem; }
+    .services .price { font-family: var(--font-mono); font-weight: 600; font-size: .95rem; color: var(--text); margin-top: .4rem; }
+    .services .featured { background: var(--accent); }
+    .services .featured p, .services .featured .price { color: var(--on-accent); }
+    .services .featured ul { margin: .5rem 0 0; padding-left: 1.1rem; display: grid; gap: .2rem; }
+
+    /* Compromissos */
+    .promises { display: grid; gap: 2rem; margin-top: 2.5rem; counter-reset: promise; }
+    .promises div { border-top: 6px solid var(--accent); padding-top: 1rem; }
+    .promises h3 { font-size: 1.8rem; }
+    .promises p { color: var(--muted); margin-top: .5rem; max-width: 36ch; }
+
+    /* Horário e endereço */
+    .visit { display: grid; gap: 2rem; margin-top: 2.5rem; }
+    .box { border: 2px solid var(--text); background: var(--surface); padding: 1.5rem; }
+    .box h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .hours { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: .6rem 1rem; font-family: var(--font-mono); font-size: .95rem; }
+    .hours dd { margin: 0; font-weight: 600; text-align: right; }
+    .address { font-style: normal; font-size: 1.1rem; margin-bottom: 1rem; }
+    .map {
+      position: relative; height: 230px; margin-bottom: 1rem; border: 2px solid var(--text);
+      background:
+        linear-gradient(90deg, transparent 60%, #bdbdb6 60%, #bdbdb6 66%, transparent 66%),
+        linear-gradient(0deg, transparent 40%, #bdbdb6 40%, #bdbdb6 47%, transparent 47%),
+        repeating-linear-gradient(0deg, #e6e6e1 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(90deg, #e6e6e1 0 1px, transparent 1px 24px),
+        #f4f4f1;
+    }
+    .map .pin { position: absolute; left: 63%; top: 56.5%; width: 22px; height: 22px; margin: -11px 0 0 -11px; background: var(--accent); border: 3px solid var(--text); }
+    .map .street { position: absolute; left: .75rem; top: calc(53.5% - 1.6rem); font-family: var(--font-mono); font-size: .75rem; color: var(--muted); }
+
+    .site-footer { border-top: 2px solid var(--text); padding: 2.5rem 0 3rem; }
+    .site-footer .container { display: grid; gap: 1.25rem; }
+    .site-footer p { color: var(--muted); }
+    .social { display: flex; flex-wrap: wrap; gap: 1.5rem; font-weight: 700; }
+
+    @media (min-width: 640px) {
+      .services { grid-template-columns: 1fr 1fr; }
+      .services .featured { grid-column: span 2; }
+    }
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .hero { padding: 3.5rem 0 4rem; }
+      .hero .container { grid-template-columns: 1.2fr .8fr; align-items: stretch; gap: 3rem; }
+      .photo-slot { min-height: 100%; }
+      .promises { grid-template-columns: repeat(3, 1fr); }
+      .visit { grid-template-columns: .8fr 1.2fr; }
+      .site-footer .container { grid-template-columns: 1fr auto; align-items: center; }
+    }
+    @media (min-width: 1024px) {
+      .services { grid-template-columns: repeat(4, 1fr); }
+      .services .featured h3 { font-size: 2.4rem; }
+    }
+
+    /* Telas muito estreitas: o mesmo botão já aparece logo abaixo, no topo da página */
+    @media (max-width: 359px) { .site-header .btn { display: none; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero h1 { animation: stamp .55s cubic-bezier(.2, .9, .3, 1.2) both; }
+      .hero-copy p, .hero-actions { animation: stamp .55s .12s cubic-bezier(.16, 1, .3, 1) both; }
+      @keyframes stamp { from { opacity: 0; transform: translateY(12px); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="demo-bar" aria-label="Aviso">
+    Página de exemplo com negócio fictício. <a href="../../index.html">Voltar para a vitrine</a>
+  </aside>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#conteudo">Bertolini<small>Auto Mecânica desde 1998</small></a>
+      <nav class="site-nav" aria-label="Seções da página">
+        <a href="#servicos">Serviços</a>
+        <a href="#como-trabalhamos">Como trabalhamos</a>
+        <a href="#visite">Horário e endereço</a>
+      </nav>
+      <!-- Os botões de WhatsApp deste exemplo levam ao WhatsApp do Samuel. Em cliente real, use o número do cliente. -->
+      <a class="btn btn--primary btn--small" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20oficina%20mec%C3%A2nica%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Pedir orçamento<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy">
+          <h1 id="hero-title">Mecânica geral <mark>sem surpresa</mark> no orçamento.</h1>
+          <p>Você aprova o valor antes de qualquer serviço. Mande o modelo do carro e o problema pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20oficina%20mec%C3%A2nica%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Pedir orçamento<span class="visually-hidden"> (abre em nova aba)</span></a>
+            <a class="btn btn--plain" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+        <div class="photo-slot">
+          <p><strong>Foto do seu estabelecimento</strong><span>A fachada da oficina ou um carro no elevador.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="stripe" aria-hidden="true"></div>
+
+    <section class="section" id="servicos" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Serviços</h2>
+        <p class="section-lead">Valores de referência para carros de passeio. Peças cotadas à parte.</p>
+        <ul class="services">
+          <li class="featured">
+            <h3>Revisão completa</h3>
+            <p>Para viajar tranquilo ou antes de vender o carro.</p>
+            <ul>
+              <li>Óleo, filtros e fluidos</li>
+              <li>Freios e suspensão</li>
+              <li>Bateria e parte elétrica</li>
+              <li>Relatório com fotos no WhatsApp</li>
+            </ul>
+            <span class="price">a partir de R$ 349</span>
+          </li>
+          <li><h3>Troca de óleo</h3><p>Com filtro e conferência de níveis.</p><span class="price">a partir de R$ 189</span></li>
+          <li><h3>Freios</h3><p>Pastilhas, discos e fluido.</p><span class="price">a partir de R$ 220</span></li>
+          <li><h3>Suspensão</h3><p>Amortecedores, buchas e pivôs.</p><span class="price">avaliação grátis</span></li>
+          <li><h3>Injeção eletrônica</h3><p>Diagnóstico com scanner.</p><span class="price">R$ 90</span></li>
+          <li><h3>Alinhamento</h3><p>Com balanceamento das 4 rodas.</p><span class="price">R$ 120</span></li>
+          <li><h3>Ar-condicionado</h3><p>Higienização e carga de gás.</p><span class="price">a partir de R$ 150</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="como-trabalhamos" aria-labelledby="promise-title">
+      <div class="container">
+        <h2 id="promise-title">Como trabalhamos</h2>
+        <div class="promises">
+          <div><h3>Orçamento antes</h3><p>Nada é feito sem você aprovar o valor por escrito.</p></div>
+          <div><h3>Peça velha de volta</h3><p>Toda peça trocada é devolvida para você conferir.</p></div>
+          <div><h3>Garantia de 90 dias</h3><p>Vale para a mão de obra de qualquer serviço.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visite" aria-labelledby="visit-title">
+      <div class="container">
+        <h2 id="visit-title">Horário e endereço</h2>
+        <div class="visit">
+          <div class="box">
+            <h3>Horário</h3>
+            <dl class="hours">
+              <dt>Seg a sex</dt><dd>08:00 - 18:00</dd>
+              <dt>Sábado</dt><dd>08:00 - 12:00</dd>
+              <dt>Domingo</dt><dd>Fechado</dd>
+            </dl>
+          </div>
+          <div class="box">
+            <h3>Endereço</h3>
+            <address class="address">Rua Dois de Julho, 85, Distrito Industrial<br>Vale Claro</address>
+            <div class="map" role="img" aria-label="Mapa ilustrativo com a localização da oficina na Rua Dois de Julho">
+              <span class="street" aria-hidden="true">Rua Dois de Julho</span>
+              <span class="pin"></span>
+            </div>
+            <!-- Em um cliente real: link do Google Maps do endereço verdadeiro -->
+            <a class="btn btn--plain btn--small" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Dois%20de%20Julho%2085">Abrir no mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram @bertoliniauto<span class="visually-hidden"> (abre em nova aba)</span></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook<span class="visually-hidden"> (abre em nova aba)</span></a>
+      </div>
+      <p>Página de exemplo feita por <a href="../../index.html">Samuel Zanatta Silva</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

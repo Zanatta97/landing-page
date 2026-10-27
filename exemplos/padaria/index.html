@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Padaria Bairro Alto | Padaria (página de exemplo)</title>
+  <meta name="description" content="Pão quentinho a cada fornada, bolos e salgados. Encomendas pelo WhatsApp. Página de exemplo com negócio fictício.">
+  <meta name="theme-color" content="#1f3fa8">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Padaria Bairro Alto | Pão quentinho a cada fornada">
+  <meta property="og:description" content="Veja o horário das fornadas e faça sua encomenda pelo WhatsApp. Página de exemplo com negócio fictício.">
+  <meta property="og:url" content="https://zanatta97.github.io/landing-page/exemplos/padaria/">
+  <meta property="og:image" content="https://zanatta97.github.io/landing-page/exemplos/padaria/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%231f3fa8'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f7f8fb'/%3E%3Ccircle cx='0' cy='0' r='8' fill='%23f7f8fb'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23f7f8fb'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Work+Sans:wght@400;500;600&display=swap">
+
+  <style>
+    /* Identidade: padaria de tradição portuguesa, azul cobalto de azulejo sobre branco. Raio de 6px em tudo. */
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --line: #d5dbeb;
+      --text: #14204a;
+      --muted: #4a4f63;
+      --accent: #1f3fa8;
+      --accent-hover: #17318a;
+      --on-accent: #f7f8fb;
+      --tile-light: #e6ebf8;
+      --radius: 6px;
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Work Sans", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.65 var(--font-body); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.1; }
+    p { margin: 0; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--accent); color: var(--on-accent); padding: .6rem 1rem; border-radius: var(--radius); font-weight: 600; }
+    .skip-link:focus { top: 1rem; }
+    /* Texto só para leitor de tela */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+    /* Padrão de azulejo feito só com gradientes */
+    .tiles {
+      background-color: var(--surface);
+      background-image:
+        radial-gradient(circle at 50% 50%, var(--accent) 0 14%, transparent 15%),
+        radial-gradient(circle at 50% 50%, transparent 0 26%, var(--accent) 27% 30%, transparent 31%),
+        radial-gradient(circle at 0 0, var(--accent) 0 22%, transparent 23%),
+        radial-gradient(circle at 100% 0, var(--accent) 0 22%, transparent 23%),
+        radial-gradient(circle at 0 100%, var(--accent) 0 22%, transparent 23%),
+        radial-gradient(circle at 100% 100%, var(--accent) 0 22%, transparent 23%),
+        linear-gradient(45deg, transparent 47%, var(--tile-light) 47% 53%, transparent 53%),
+        linear-gradient(-45deg, transparent 47%, var(--tile-light) 47% 53%, transparent 53%);
+      background-size: 64px 64px;
+    }
+
+    .demo-bar { background: var(--accent); color: var(--on-accent); font-size: .85rem; text-align: center; padding: .5rem 1rem; }
+    .demo-bar a { font-weight: 600; }
+
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+    .brand { font-family: var(--font-display); font-weight: 900; font-size: 1.35rem; text-decoration: none; }
+    .site-nav { display: none; gap: 1.75rem; }
+    .site-nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+    .site-nav a:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.4rem;
+      border-radius: var(--radius); font-weight: 600; text-decoration: none; white-space: nowrap;
+      transition: transform .2s cubic-bezier(.16, 1, .3, 1), background-color .2s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn--primary { background: var(--accent); color: var(--on-accent); }
+    .btn--primary:hover { background: var(--accent-hover); }
+    .btn--outline { border: 1.5px solid var(--accent); color: var(--accent); }
+    .btn--outline:hover { background: var(--surface); }
+    .btn--small { min-height: 42px; padding: .5rem 1rem; font-size: .95rem; }
+
+    /* Hero: texto + moldura de azulejo com espaço para foto */
+    .hero { padding: 2.5rem 0 4rem; }
+    .hero .container { display: grid; gap: 2.5rem; }
+    .hero h1 { font-size: clamp(2.5rem, 9vw, 4.6rem); font-weight: 900; }
+    .hero h1 em { font-weight: 700; color: var(--accent); }
+    .hero-copy p { font-size: 1.125rem; color: var(--muted); max-width: 36ch; margin-top: 1.25rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+    .tile-frame { border-radius: var(--radius); padding: 28px; }
+    .photo-slot {
+      min-height: 280px; border-radius: var(--radius); background: var(--surface); border: 1.5px dashed #8d9ac4;
+      display: grid; place-items: end start; padding: 1.25rem;
+    }
+    .photo-slot strong { display: block; }
+    .photo-slot span { color: var(--muted); font-size: .92rem; }
+
+    /* Fornadas */
+    .section { padding: 4rem 0; }
+    .section h2 { font-size: clamp(2rem, 6vw, 3.1rem); }
+    .section-lead { color: var(--muted); margin-top: .75rem; max-width: 50ch; }
+    .next-batch { margin-top: 1rem; font-weight: 600; color: var(--accent); min-height: 1.6em; }
+
+    .timeline { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 0; position: relative; }
+    .timeline li { position: relative; padding: 0 0 1.75rem 2.25rem; }
+    .timeline li::before {
+      content: ""; position: absolute; left: 0; top: .35rem; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+    }
+    .timeline li::after { content: ""; position: absolute; left: 6px; top: 1.4rem; bottom: 0; width: 2px; background: var(--line); }
+    .timeline li:last-child::after { display: none; }
+    .timeline li.is-next::before { background: var(--accent); }
+    .timeline time { font-family: var(--font-display); font-weight: 900; font-size: 1.9rem; line-height: 1; display: block; }
+    .timeline p { color: var(--muted); margin-top: .3rem; }
+
+    /* Produtos do balcão */
+    .products { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .products li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; display: grid; gap: .25rem; }
+    .products h3 { font-size: 1.15rem; }
+    .products .price { font-weight: 600; color: var(--accent); }
+
+    /* Encomendas */
+    .order { display: grid; gap: 2rem; margin-top: 2.5rem; align-items: center; }
+    .order ul { list-style: none; margin: 0; padding: 0; }
+    .order li { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+    .order li span:last-child { font-weight: 600; white-space: nowrap; }
+    .order .btn { margin-top: 1.5rem; }
+    .order .photo-slot { min-height: 260px; }
+
+    /* Horário e endereço */
+    .visit { display: grid; gap: 2rem; margin-top: 2.5rem; }
+    .visit h3 { font-size: 1.4rem; margin-bottom: .75rem; }
+    .hours { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; }
+    .hours dd { margin: 0; font-weight: 600; }
+    .address { font-style: normal; margin-bottom: 1rem; }
+    .map {
+      position: relative; height: 220px; border-radius: var(--radius); margin-bottom: 1rem; border: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, transparent 22%, var(--surface) 22% 27%, transparent 27%),
+        linear-gradient(0deg, transparent 30%, var(--surface) 30% 36%, transparent 36%),
+        linear-gradient(60deg, transparent 62%, var(--surface) 62% 65%, transparent 65%),
+        var(--tile-light);
+    }
+    .map .pin { position: absolute; left: 24.5%; top: 67%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: var(--accent); border: 4px solid var(--surface); box-shadow: 0 2px 8px rgba(31, 63, 168, .35); }
+    .map .street { position: absolute; left: 29%; bottom: 36%; font-size: .78rem; color: var(--muted); }
+
+    .tile-band { height: 32px; background-size: 32px 32px; }
+
+    .site-footer { padding: 2.5rem 0 3rem; color: var(--muted); }
+    .site-footer .container { display: grid; gap: 1.25rem; }
+    .social { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .social a { color: var(--accent); font-weight: 600; }
+
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .hero { padding: 3.5rem 0 5rem; }
+      .hero .container { grid-template-columns: 1.1fr .9fr; align-items: center; gap: 4rem; }
+      .tile-frame { padding: 40px; }
+      .photo-slot { min-height: 360px; }
+      .timeline { grid-template-columns: repeat(4, 1fr); }
+      .timeline li { padding: 2.25rem 1rem 0 0; }
+      .timeline li::before { top: 0; }
+      .timeline li::after { left: 1.1rem; right: 0; top: 6px; bottom: auto; width: auto; height: 2px; }
+      .products { grid-template-columns: repeat(3, 1fr); }
+      .order { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .visit { grid-template-columns: 1fr 1.3fr; gap: 4rem; }
+      .site-footer .container { grid-template-columns: 1fr auto; align-items: center; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy > * { animation: up .7s cubic-bezier(.16, 1, .3, 1) both; }
+      .hero-copy > :nth-child(2) { animation-delay: .08s; }
+      .hero-copy > :nth-child(3) { animation-delay: .16s; }
+      .tile-frame { animation: tiles 1.2s ease-out both; }
+      @keyframes up { from { opacity: 0; transform: translateY(14px); } }
+      @keyframes tiles { from { background-position: 0 -64px; opacity: .4; } }
+      .timeline li.is-next::before { animation: pulse 2s ease-in-out infinite; }
+      @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(31, 63, 168, .18); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <aside class="demo-bar" aria-label="Aviso">
+    Página de exemplo com negócio fictício. <a href="../../index.html">Voltar para a vitrine</a>
+  </aside>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#conteudo">Padaria Bairro Alto</a>
+      <nav class="site-nav" aria-label="Seções da página">
+        <a href="#fornadas">Fornadas</a>
+        <a href="#balcao">No balcão</a>
+        <a href="#encomendas">Encomendas</a>
+        <a href="#visite">Endereço</a>
+      </nav>
+      <!-- Os botões de WhatsApp deste exemplo levam ao WhatsApp do Samuel. Em cliente real, use o número do cliente. -->
+      <a class="btn btn--primary btn--small" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20padaria%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Fazer encomenda<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy">
+          <h1 id="hero-title">Pão quentinho saindo <em>a cada fornada</em>.</h1>
+          <p>Pão francês, pão de queijo, bolos caseiros e salgados. Encomendas de festa pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20padaria%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Fazer encomenda<span class="visually-hidden"> (abre em nova aba)</span></a>
+            <a class="btn btn--outline" href="#fornadas">Horário das fornadas</a>
+          </div>
+        </div>
+        <div class="tile-frame tiles">
+          <div class="photo-slot">
+            <p><strong>Foto do seu estabelecimento</strong><span>O balcão cheio de pão logo cedo.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fornadas" aria-labelledby="batch-title">
+      <div class="container">
+        <h2 id="batch-title">Horário das fornadas</h2>
+        <p class="section-lead">Chegue na hora certa e leve o pão ainda estalando.</p>
+        <p class="next-batch" aria-live="polite"></p>
+        <ol class="timeline">
+          <li data-time="06:00"><time datetime="06:00">6h00</time><p>Pão francês e pão de leite</p></li>
+          <li data-time="10:30"><time datetime="10:30">10h30</time><p>Pão de queijo e salgados assados</p></li>
+          <li data-time="15:30"><time datetime="15:30">15h30</time><p>Pão francês e bolos do dia</p></li>
+          <li data-time="17:30"><time datetime="17:30">17h30</time><p>Pão francês, sovado e baguete</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="balcao" aria-labelledby="counter-title">
+      <div class="container">
+        <h2 id="counter-title">No balcão</h2>
+        <ul class="products">
+          <li><h3>Pão francês</h3><span class="price">R$ 18,90/kg</span></li>
+          <li><h3>Pão de queijo</h3><span class="price">R$ 4,50 un.</span></li>
+          <li><h3>Sonho de creme</h3><span class="price">R$ 6,00 un.</span></li>
+          <li><h3>Bolo de fubá</h3><span class="price">R$ 7,00 a fatia</span></li>
+          <li><h3>Coxinha</h3><span class="price">R$ 7,50 un.</span></li>
+          <li><h3>Café coado</h3><span class="price">R$ 4,00</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="encomendas" aria-labelledby="order-title">
+      <div class="container">
+        <h2 id="order-title">Encomendas para festa</h2>
+        <div class="order">
+          <div>
+            <ul>
+              <li><span>Bolo de aniversário</span><span>R$ 89/kg</span></li>
+              <li><span>Salgados fritos (cento)</span><span>R$ 85</span></li>
+              <li><span>Docinhos (cento)</span><span>R$ 120</span></li>
+              <li><span>Kit café da manhã</span><span>R$ 75</span></li>
+            </ul>
+            <p class="section-lead">Pedidos com 48 horas de antecedência.</p>
+            <a class="btn btn--primary" href="https://wa.me/5551981505157?text=Ol%C3%A1!%20Vi%20o%20exemplo%20de%20padaria%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Fazer encomenda<span class="visually-hidden"> (abre em nova aba)</span></a>
+          </div>
+          <div class="photo-slot">
+            <p><strong>Foto do seu estabelecimento</strong><span>Um bolo de encomenda já pronto para entrega.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visite" aria-labelledby="visit-title">
+      <div class="container">
+        <h2 id="visit-title">Horário e endereço</h2>
+        <div class="visit">
+          <div>
+            <h3>Aberto todos os dias</h3>
+            <dl class="hours">
+              <dt>Segunda a sábado</dt><dd>6h às 20h</dd>
+              <dt>Domingo e feriados</dt><dd>6h às 13h</dd>
+            </dl>
+          </div>
+          <div>
+            <h3>Endereço</h3>
+            <address class="address">Praça da Matriz, 32, Centro<br>Vale Claro</address>
+            <div class="map" role="img" aria-label="Mapa ilustrativo com a localização da padaria na Praça da Matriz">
+              <span class="pin"></span>
+              <span class="street" aria-hidden="true">Praça da Matriz</span>
+            </div>
+            <!-- Em um cliente real: link do Google Maps do endereço verdadeiro -->
+            <a class="btn btn--outline btn--small" href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a%20da%20Matriz%2032">Abrir no mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="tile-band tiles" aria-hidden="true"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram @padariabairroalto<span class="visually-hidden"> (abre em nova aba)</span></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook<span class="visually-hidden"> (abre em nova aba)</span></a>
+      </div>
+      <p>Página de exemplo feita por <a href="../../index.html">Samuel Zanatta Silva</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Marca a próxima fornada do dia e anuncia o horário.
+    (function () {
+      var items = Array.prototype.slice.call(document.querySelectorAll('.timeline li'));
+      var out = document.querySelector('.next-batch');
+      var now = new Date();
+      var minutes = now.getHours() * 60 + now.getMinutes();
+      var next = items.find(function (li) {
+        var parts = li.getAttribute('data-time').split(':');
+        return Number(parts[0]) * 60 + Number(parts[1]) > minutes;
+      });
+      if (next) {
+        next.classList.add('is-next');
+        out.textContent = 'Próxima fornada hoje: ' + next.querySelector('time').textContent + '.';
+      } else {
+        out.textContent = 'As fornadas de hoje já saíram. Amanhã a primeira é às 6h00.';
+      }
+    })();
+  </script>
+</body>
+</html>
